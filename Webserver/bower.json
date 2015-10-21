@@ -1,0 +1,23 @@
+{
+  "name": "word2func",
+  "homepage": "https://github.com/djsamseng/Word2Func",
+  "authors": [
+    "Samuel Seng <djsamseng@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "react": "~0.14.0"
+  }
+}
