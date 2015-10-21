@@ -102,17 +102,28 @@ vector<unordered_map<string, float> > train(const Xtype& X, const ytype& y) {
 void classify(const vector<unordered_map<string, float> >& weights, const string& sentence) {
     unordered_set<string> words = word2vec(sentence);
     float sum = 0;
+    float threshold = 0.5;
+    string plus_words;
+    string minus_words;
     for (unordered_set<string>::const_iterator it = words.begin(); it != words.end(); it++) {
         unordered_map<string, float>::const_iterator weight_it = weights[0].find(*it);
         if (weight_it != weights[0].end()) {
             sum += weight_it->second;
+            if (weight_it->second < threshold) {
+                plus_words += *it + " ";
+            } else if (weight_it->second > -threshold) {
+                minus_words += *it + " ";
+            }
+        } else {
+            plus_words += *it + " ";
+            minus_words += *it + " ";
         }
     }
     cout << sentence << " : " << endl;
     if (sum > 0) {
-        yahoo("test");
+        yahoo("" + plus_words);
     } else {
-        google("test");
+        google("" + minus_words);
     }
 }
 
