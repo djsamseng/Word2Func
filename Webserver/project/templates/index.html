@@ -9,23 +9,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     </head>
     <body>
-        <div id="mount_react">
+        <div id="mountReact">
         </div>
-        <div id="urls">{{ urls }}</div>
-        <pre id="url_response"></pre>
-        <button id="search_button">Search</button>
+        <script src="static/CONSTANTS.js"></script>
         <script type="text/babel" src="static/react_main.js"></script>
     </body>
-    <script>
-        $('#search_button').click(function() {
-            $.ajax({
-                url: '/get_links',
-                method: 'POST',
-                data: JSON.stringify({ 'query' : 'lectures' }, null, '\t'),
-                contentType: 'application/json;charset=UTF-8'
-            }).done(function(msg) {
-                $('#url_response').text(JSON.stringify(JSON.parse(msg), null, 2));
-            });
-        });
-    </script>
 </html>
