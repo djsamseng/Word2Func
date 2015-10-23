@@ -11,8 +11,14 @@ var SearchForm = React.createClass({
         return (
             <div>
                 <form className="searchForm" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Machine Learning" ref="searchText" />
-                    <input type="submit" value="Search" />
+                    <div className="input-group">
+                        <input type="text" className="form-control" placeholder="Machine Learning" ref="searchText" />
+                        <div className="input-group-btn">
+                            <button type="submit" className="btn btn-primary">
+                                <span>Search </span><i className="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         );
