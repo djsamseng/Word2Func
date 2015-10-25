@@ -29,17 +29,16 @@ var SearchResultList = React.createClass({
     render: function() {
         return (
             <div className="searchResultList">
-                <ul>
-                    {this.props.data.map(function(link) {
-                        return (
-                            <li key={link.id}>
-                                <p>{link.title}</p>
+                {this.props.data.map(function(link) {
+                    return (
+                        <div className="panel panel-default" key={link.id}>
+                            <div className="panel-body">
+                                <h3><a href={link.link}>{link.title}</a></h3>
                                 <p>{link.snippet}</p>
-                                <a href={link.link}>{link.link}</a>
-                            </li>
-                        );
-                    })}
-                </ul>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         );
     }
